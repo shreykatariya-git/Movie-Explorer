@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f1117;
+            color: #e8e8e8;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(135deg, #141722, #1d2333);
+            padding: 30px 7%;
+            border-bottom: 1px solid #303747;
+        }
+
+        header h1 {
+            color: #ffcc00;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        header ul,
+        body>ul {
+            list-style: none;
+        }
+
+        header nav,
+        body>ul nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        header nav li,
+        body>ul nav li {
+            list-style: none;
+        }
+
+        header nav a,
+        body>ul nav a {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #252c3c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        header nav a:hover,
+        body>ul nav a:hover {
+            background: #ffcc00;
+            color: #111111;
+            transform: translateY(-2px);
+        }
+
+        hr {
+            border: none;
+            background: #343b4c;
+            margin: 25px 0;
+        }
+
+        header h2 {
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 28px;
+        }
+
+        header p {
+            color: #aeb5c4;
+            max-width: 800px;
+            margin-bottom: 22px;
+        }
+
+        /* EXPLORE BUTTON */
+
+        header>a {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #ffcc00;
+            color: #111111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 7px;
+            transition: 0.3s ease;
+        }
+
+        header>a:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* MOVIE GRID */
+
+        #main {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        /* MOVIE CARDS */
+
+        #main>div {
+            width: 100%;
+        }
+
+        #main fieldset {
+            height: 100%;
+            padding: 25px;
+            background: #181c27;
+            border: 1px solid #303849;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            transition: 0.3s ease;
+        }
+
+        #main fieldset:hover {
+            transform: translateY(-6px);
+            border-color: #ffcc00;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        #main legend h2,
+        #main legend h4 {
+            color: #ffcc00;
+            font-size: 22px;
+        }
+
+        #main legend span {
+            color: #ffffff;
+        }
+
+        #main img {
+            display: block;
+            width: 100%;
+            border-radius: 10px;
+            margin: 10px 0 20px;
+            transition: 0.3s ease;
+        }
+
+        #main img:hover {
+            transform: scale(1.02);
+        }
+
+        #main p {
+            color: #bfc4cf;
+            margin: 10px 0;
+        }
+
+        #main p b {
+            color: #ffffff;
+        }
+
+        #main a {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 18px;
+            background: #ffcc00;
+            color: #111111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 7px;
+            transition: 0.3s ease;
+        }
+
+        #main a:hover {
+            background: #ffffff;
+            transform: translateX(4px);
+        }
+
+        /* ANALYTICS */
+
+        body>h1 {
+            max-width: 1400px;
+            margin: 40px auto 25px;
+            padding: 0 25px;
+            color: #ffffff;
+            font-size: 32px;
+        }
+
+        table {
+            width: calc(100% - 50px);
+            max-width: 1400px;
+            margin: 0 auto 30px;
+            border-collapse: collapse;
+            background: #181c27;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #343b4c;
+        }
+
+        th {
+            background: #252c3c;
+            color: #ffcc00;
+            font-size: 17px;
+        }
+
+        td {
+            color: #c3c8d2;
+        }
+
+        tr:hover td {
+            background: #202635;
+        }
+
+        body>ul {
+            max-width: 1400px;
+            margin: 0 auto 30px;
+            padding: 0 25px;
+        }
+
+        /* BACK BUTTON */
+
+        body>a {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background: #252c3c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        body>a:hover {
+            background: #ffcc00;
+            color: #111111;
+        }
+
+        footer {
+            text-align: center;
+            color: #777f90;
+            padding: 25px;
+            margin-top: 30px;
+            border-top: 1px solid #292f3c;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 900px) {
+            #main {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 25px 5%;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            header {
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            header h2 {
+                font-size: 23px;
+            }
+
+            header nav,
+            body>ul nav {
+                flex-direction: column;
+            }
+
+            header nav a,
+            body>ul nav a {
+                width: 100%;
+                text-align: center;
+            }
+
+            #main {
+                padding: 0 15px;
+            }
+
+            #main fieldset {
+                padding: 18px;
+            }
+
+            body>h1 {
+                font-size: 25px;
+                padding: 0 15px;
+            }
+
+            table {
+                width: calc(100% - 30px);
+                font-size: 13px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+            }
+
+            body>ul {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <h1>🎬 Movie Explorer</h1>
+        <ul>
+            <nav>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalouge.html">Catalouge</a></li>
+                <li><a href="details.html">Movie Details</a></li>
+                <li><a href="about.html">About & Contact</a></li>
+            </nav>
+        </ul>
+        <hr>
+
+        <h2>Welcome To Movie Explorer Portal</h2>
+        <p>Discover top-rated cinematic masterpieces, explore detailed cast profiles, and browse movies across various
+            genres.</p>
+
+        <a href="catalouge.html">Explor Full Movie Catalouge</a>
+    </header>
+
+    <main id="main">
+        <div id="movie1" class="moviesl">
+            <fieldset>
+                <legend>
+                    <h2><span>The Dark Knight</span></h2>
+                </legend>
+                <img src="knight.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b>Action, Crime, Drama | <b>Rating : </b>★ 10/10</p>
+                <p><b>Director : </b>Chistopher Nolan | <b>Year : </b>2008</p>
+                <p><b>Duration : </b>2 hour 32 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> Batman faces the Joker, a criminal mastermind who pushes Gotham toward chaos. </p>
+                <p><b>Best Part : </b>Heath Ledger's Joker and the intense crime-driven story.</p>
+                <a href="thedarkknight.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div id="movie2" class="moviesr">
+            <fieldset>
+                <legend>
+                    <h2><span>Inception</span></h2>
+                </legend>
+                <img src="inception.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b>Sci-Fi, Action, Thriller | <b>Rating : </b>★ 10/10</p>
+                <p><b>Director : </b>Chistopher Nolan | <b>Year : </b>2010</p>
+                <p><b>Duration : </b>2 hour 28 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> A team enters people's dreams to steal or implant information, while reality becomes
+                    increasingly difficult to separate from dreams.</p>
+                <p><b>Best Part : </b>Layered dream concept and the ending.</p>
+                <a href="inception.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div id="movie3" class="moviesl">
+            <fieldset>
+                <legend>
+                    <h2><span>Interstellar</span></h2>
+                </legend>
+                <img src="interstellar.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Sci-Fi, Adventure, Drama | <b>Rating : </b>★ 10/10</p>
+                <p><b>Director : </b>Chistopher Nolan | <b>Year : </b>2014</p>
+                <p><b>Duration : </b>2 hour 49 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> Astronauts travel through a wormhole searching for a planet where humanity could
+                    survive
+                    as Earth becomes difficult to live on. </p>
+                <p><b>Best Part : </b> Space visuals, emotion, and Hans Zimmer's music.</p>
+                <a href="interstellar.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div id="movie4" class="moviesr">
+            <fieldset>
+                <legend>
+                    <h2><span>Avengers : Endgame</span></h2>
+                </legend>
+                <img src="avengers.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Superhero, Action, Sci-Fi | <b>Rating : </b>★ 9.5/10</p>
+                <p><b>Director : </b> Anthony Russo & Joe Russo | <b>Year : </b>2019</p>
+                <p><b>Duration : </b> 3 hour 1 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> The Avengers attempt to reverse the devastating consequences of Thanos' actions.</p>
+                <p><b>Best Part : </b>The huge final battle and emotional payoff.</p>
+                <a href="avengersendgame.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div id="movie5" class="moviesl">
+            <fieldset>
+                <legend>
+                    <h2><span>Parasite</span></h2>
+                </legend>
+                <img src="parasite.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Thriller, Drama | <b>Rating : </b>★ 9.5 </p>
+                <p><b>Director : </b> Bong Joon Ho | <b>Year : </b>2019</p>
+                <p><b>Duration : </b> 2 hour 20 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> A struggling family becomes involved with a wealthy family; the story gradually
+                    transforms
+                    into a psychological thriller.</p>
+                <p><b>Best Part : </b> Unexpected turns and clever storytelling.</p>
+                <a href="parasite.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div id="movie6" class="moviesr">
+            <fieldset>
+                <legend>
+                    <h2><span>Spider-Man: Across the Spider-Verse</span></h2>
+                </legend>
+                <img src="spiderman.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Animation, Action, Sci-Fi | <b>Rating : </b>★ 9.5</p>
+                <p><b>Director : </b>Joaquim Dos Santos, Kemp Powers, Justin K. Thompsan | <b>Year : </b>2023</p>
+                <p><b>Duration : </b> 2 hour 12 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b>Miles Morales discovers a huge Spider-Verse containing many different Spider-People.
+                </p>
+                <p><b>Best Part : </b>Creative animation, emotional story, and the Spider-Verse concept.</p>
+                <a href="spiderman.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div id="movie7" class="moviesl">
+            <fieldset>
+                <legend>
+                    <h4><span>Oppenheimer</span></h4>
+                </legend>
+                <img src="oppenheimer.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b>Biografy, Drama, History | <b>Rating : </b>★ 9.5</p>
+                <p><b>Director : </b>Christopher Nolan | <b>Year : </b>2023</p>
+                <p><b>Duration : </b> 3 hour 00 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> The story of J. Robert Oppenheimer and his role in developing the first atomic
+                    bombduring World War II. </p>
+                <p><b>Best Part : </b> Cillian Murphy's performance and the tension around the Manhattan Project.</p>
+                <a href="oppenheimer.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div id="movie8" class="moviestr">
+            <fieldset>
+                <legend>
+                    <h2><span>Dune: Part Two</span></h2>
+                </legend>
+                <img src="dune.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Sci-Fi, Adventure, Drama | <b>Rating : </b>★ 9.5</p>
+                <p><b>Director : </b> Denis Villeneuve | <b>Year : </b>2024</p>
+                <p><b>Duration : </b> 2 hour 46 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> Paul Atreides joins the Fremen on Arrakis and becomes increasingly involved in the
+                    planet's political and religious struggle.</p>
+                <p><b>Best Part : </b>Scale, cinematography, soundtrack, and battles.</p>
+                <a href="dune.html">More Details</a>
+            </fieldset>
+        </div>
+    </main>
+
+    <h1>Portal Summary Analytics</h1>
+
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td>Total Cataloged Movies</td>
+            <td>8 Titles</td>
+            <td>Curated database entries available for static browsing</td>
+        </tr>
+
+        <tr>
+            <td>Average User Rating</td>
+            <td> 9.68/ 10</td>
+            <td>Calculated across all listed titles</td>
+        </tr>
+
+        <tr>
+            <td>Available Genres</td>
+            <td>5 Categories</td>
+            <td>Action, Sci-Fi, Crime, Drama, Animation</td>
+        </tr>
+
+        <tr>
+            <td>Supported Languages</td>
+            <td>English</td>
+            <td>International film metadata support</td>
+        </tr>
+    </table>
+
+    <ul>
+        <nav>
+            <li><a href="#movie4">Action Movies</a></li>
+            <li><a href="#movie3">Science Fiction</a></li>
+            <li><a href="#movie1">Crime & Mystery </a></li>
+            <li><a href="#movie4">Drama & Romance</a></li>
+            <li><a href="#movie6">Animated Masterpieces</a></li>
+
+        </nav>
+    </ul>
+
+    <a href="catalouge.html">← Back To Catalouge</a>
+
+
+    <footer>@2026 MovieExplorer ~ShreyKatariya</footer>
+
+</body>
+
+</html>
