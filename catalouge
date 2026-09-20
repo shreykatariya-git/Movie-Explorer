@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Explorer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f1117;
+            color: #e8e8e8;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        /*HEADER*/
+
+        header {
+            background: linear-gradient(135deg, #141722, #1d2333);
+            padding: 30px 7%;
+            border-bottom: 1px solid #303747;
+        }
+
+        header h1 {
+            color: #ffcc00;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        /*NAVIGATION*/
+
+        header ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        header nav li {
+            list-style: none;
+        }
+
+        header nav a {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #252c3c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        header nav a:hover {
+            background: #ffcc00;
+            color: #111111;
+            transform: translateY(-2px);
+        }
+
+        /*HORIZONTAL LINE*/
+
+        hr {
+            border: none;
+            background: #343b4c;
+            margin: 25px 0;
+        }
+
+        /*HEADER TEXT*/
+
+        header h2 {
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        header>p {
+            color: #aeb5c4;
+        }
+
+        /*FORM*/
+
+        form {
+            margin-top: 25px;
+        }
+
+        fieldset {
+            border: 1px solid #3b4355;
+            border-radius: 12px;
+            padding: 25px;
+            background: #181c27;
+        }
+
+        legend {
+            padding: 0 12px;
+        }
+
+        legend h2 {
+            color: #ffcc00;
+        }
+
+        label {
+            color: #d7d9df;
+        }
+
+        h4 {
+            margin: 12px 0 8px;
+            color: #ffffff;
+        }
+
+        /*SEARCH*/
+
+        input[type="search"] {
+            width: 100%;
+            max-width: 450px;
+            padding: 12px 14px;
+            background: #0f1117;
+            color: #ffffff;
+            border: 1px solid #41495c;
+            border-radius: 7px;
+            outline: none;
+        }
+
+        input[type="search"]:focus {
+            border-color: #ffcc00;
+            transform: translateY(-2px);
+        }
+
+        /*RADIO*/
+
+        input[type="radio"] {
+            accent-color: #ffcc00;
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        /*SELECT*/
+
+        select {
+            width: 100%;
+            max-width: 450px;
+            padding: 12px 14px;
+            background: #0f1117;
+            color: #ffffff;
+            border: 1px solid #41495c;
+            border-radius: 7px;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: #ffcc00;
+        }
+
+        /*FORM BUTTONS*/
+
+        input[type="submit"],input[type="reset"] {
+            padding: 11px 20px;
+            border: none;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        input[type="submit"] {
+            background: #ffcc00;
+            color: #111111;
+        }
+
+        input[type="submit"]:hover {
+            background: #e6b800;
+            transform: translateY(-2px);
+        }
+
+        input[type="reset"] {
+            background: #363d4d;
+            color: #ffffff;
+            margin-left: 8px;
+        }
+
+        input[type="reset"]:hover {
+            background: #4a5263;
+            transform: translateY(-2px);
+        }
+
+        /*MAIN TITLE*/
+
+        body>h1 {
+            max-width: 1400px;
+            margin: 40px auto 25px;
+            padding: 0 25px;
+            color: #ffffff;
+            font-size: 32px;
+        }
+
+        /*MOVIE GRID*/
+
+        #main {
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        /* MOVIE CARD*/
+
+        .movies {
+            width: 100%;
+        }
+
+        .movies fieldset {
+            height: 100%;
+            padding: 25px;
+            background: #181c27;
+            border: 1px solid #303849; 
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            transition: 0.3s ease;
+        }
+
+        .movies fieldset:hover {
+            transform: translateY(-6px);
+            border-color: #ffcc00;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        /*MOVIE TITLE*/
+
+        .movies legend h2,
+        .movies legend h4 {
+            color: #ffcc00;
+            font-size: 22px;
+        }
+
+        .movies legend span {
+            color: #ffffff;
+        }
+
+        /*MOVIE IMAGE*/
+
+        .movies img {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            border-radius: 10px;
+            margin: 10px 0 20px;
+            transition: 0.3s ease;
+        }
+
+        .movies img:hover {
+            transform: scale(1.02);
+        }
+
+        /*MOVIE INFORMATION*/
+
+        .movies p {
+            color: #bfc4cf;
+            margin: 10px 0;
+        }
+
+        .movies p b {
+            color: #ffffff;
+        }
+
+        /*MORE DETAILS*/
+
+        .movies a {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 18px;
+            background: #ffcc00;
+            color: #111111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 7px;
+            transition: 0.3s ease;
+        }
+
+        .movies a:hover {
+            background: #ffffff;
+            transform: translateX(4px);
+        }
+
+        /*BACK TO HOME*/
+
+        body>a {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background: #252c3c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        body>a:hover {
+            background: #ffcc00;
+            color: #111111;
+        }
+
+        /*FOOTER*/
+
+        footer {
+            text-align: center;
+            color: #777f90;
+            padding: 25px;
+            margin-top: 30px;
+            border-top: 1px solid #292f3c;
+        }
+
+
+        /*TABLET*/
+
+        @media (max-width: 900px) {
+
+            #main {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 25px 5%;
+            }
+            header h1 {
+                font-size: 32px;
+            }
+        }
+
+        /*MOBILE*/
+
+        @media (max-width: 600px) {
+
+            body {
+                font-size: 14px;
+            }
+            header {
+                padding: 20px 15px;
+            }
+            header h1 {
+                font-size: 28px;
+            }
+            header nav {
+                flex-direction: column;
+            }
+            header nav a {
+                width: 100%;
+                text-align: center;
+            }
+            #main {
+                padding: 0 15px;
+            }
+            body>h1 {
+                font-size: 25px;
+                padding: 0 15px;
+            }
+            .movies fieldset {
+                padding: 18px;
+            }
+            .movies img {
+                width: 100%;
+                max-width: 100%;
+            }
+            input[type="radio"] {
+                margin-left: 0;
+            }
+            input[type="submit"],
+            input[type="reset"] {
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <h1>🎬 Movie Explorer</h1>
+        <ul>
+            <nav>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalouge.html">Catalouge</a></li>
+                <li><a href="details.html">Movie Details</a></li>
+                <li><a href="about.html">About & Contact</a></li>
+            </nav>
+        </ul>
+        <hr>
+
+        <h2>Compelete Movie Catalouge</h2>
+        <p>Use the form options below to filter and sort through our film database.</p>
+
+        <form action="#">
+            <fieldset>
+                <legend>
+                    <h2>Filter & Search Options</h2>
+                </legend>
+
+                <label for="search">
+                    <h4>Search Title/Director : </h4>
+                </label>
+                <input type="search" name="search" id="search" placeholder="e.g. ">
+
+                <h4>Select Genres : </h4>
+                <input type="radio" name="type" id="all">
+                <label for="all">All Genres</label>
+                <input type="radio" name="type" id="action">
+                <label for="action">Action</label>
+                <input type="radio" name="type" id="scif">
+                <label for="scif">Science Fiction</label>
+                <input type="radio" name="type" id="crime">
+                <label for="crime">Crime</label>
+                <input type="radio" name="type" id="drama">
+                <label for="drama">Drama</label>
+
+                <label for="sort">
+                    <h4> Sort Records By : </h4>
+                </label>
+                <select name="sort" id="sort">
+                    <option value="def" disabled selected>Default</option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                </select>
+                <br><br>
+
+                <input type="submit" value="Apply Filters">
+                <input type="reset" value="Reset All">
+                <br>
+
+            </fieldset>
+            <hr>
+            <br>
+
+        </form>
+    </header>
+
+    <h1>All Movies Records (8 Items)</h1>
+
+    <main id="main">
+        <div class="movies">
+            <fieldset>
+                <legend>
+                    <h2>1. <span>The Dark Knight</span></h2>
+                </legend>
+                <img src="knight.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b>Action, Crime, Drama | <b>Rating : </b>★ 10/10</p>
+                <p><b>Director : </b>Chistopher Nolan | <b>Year : </b>2008</p>
+                <p><b>Duration : </b>2 hour 32 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> Batman faces the Joker, a criminal mastermind who pushes Gotham toward chaos. </p>
+                <p><b>Best Part : </b>Heath Ledger's Joker and the intense crime-driven story.</p>
+                <a href="thedarkknight.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div class="movies">
+            <fieldset>
+                <legend>
+                    <h2>2. <span>Inception</span></h2>
+                </legend>
+                <img src="inception.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b>Sci-Fi, Action, Thriller | <b>Rating : </b>★ 10/10</p>
+                <p><b>Director : </b>Chistopher Nolan | <b>Year : </b>2010</p>
+                <p><b>Duration : </b>2 hour 28 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> A team enters people's dreams to steal or implant information, while reality becomes
+                    increasingly difficult to separate from dreams.</p>
+                <p><b>Best Part : </b>Layered dream concept and the ending.</p>
+                <a href="inception.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div class="movies">
+            <fieldset>
+                <legend>
+                    <h2>3. <span>Interstellar</span></h2>
+                </legend>
+                <img src="interstellar.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Sci-Fi, Adventure, Drama | <b>Rating : </b>★ 10/10</p>
+                <p><b>Director : </b>Chistopher Nolan | <b>Year : </b>2014</p>
+                <p><b>Duration : </b>2 hour 49 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> Astronauts travel through a wormhole searching for a planet where humanity could
+                    survive
+                    as Earth becomes difficult to live on. </p>
+                <p><b>Best Part : </b> Space visuals, emotion, and Hans Zimmer's music.</p>
+                <a href="interstellar.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div class="movies">
+            <fieldset>
+                <legend>
+                    <h2>4. <span>Avengers : Endgame</span></h2>
+                </legend>
+                <img src="avengers.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Superhero, Action, Sci-Fi | <b>Rating : </b>★ 9.5/10</p>
+                <p><b>Director : </b> Anthony Russo & Joe Russo | <b>Year : </b>2019</p>
+                <p><b>Duration : </b> 3 hour 1 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> The Avengers attempt to reverse the devastating consequences of Thanos' actions.</p>
+                <p><b>Best Part : </b>The huge final battle and emotional payoff.</p>
+                <a href="avengersendgame.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div class="movies">
+            <fieldset>
+                <legend>
+                    <h2>5. <span>Parasite</span></h2>
+                </legend>
+                <img src="parasite.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Thriller, Drama | <b>Rating : </b>★ 9.5 </p>
+                <p><b>Director : </b> Bong Joon Ho | <b>Year : </b>2019</p>
+                <p><b>Duration : </b> 2 hour 20 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> A struggling family becomes involved with a wealthy family the story gradually
+                    transforms
+                    into a psychological thriller.</p>
+                <p><b>Best Part : </b> Unexpected turns and clever storytelling.</p>
+                <a href="parasite.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div class="movies">
+            <fieldset>
+                <legend>
+                    <h2>6. <span>Spider-Man: Across the Spider-Verse</span></h2>
+                </legend>
+                <img src="spiderman.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Animation, Action, Sci-Fi | <b>Rating : </b>★ 9.5</p>
+                <p><b>Director : </b>Joaquim Dos Santos, Kemp Powers, Justin K. Thompsan | <b>Year : </b>2023</p>
+                <p><b>Duration : </b> 2 hour 12 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b>Miles Morales discovers a huge Spider-Verse containing many different Spider-People.
+                </p>
+                <p><b>Best Part : </b>Creative animation, emotional story, and the Spider-Verse concept.</p>
+                <a href="spiderman.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div class="movies">
+            <fieldset>
+                <legend>
+                    <h4>7. <span>Oppenheimer</span></h4>
+                </legend>
+                <img src="oppenheimer.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b>Biografy, Drama, History | <b>Rating : </b>★ 9.5</p>
+                <p><b>Director : </b>Christopher Nolan | <b>Year : </b>2023</p>
+                <p><b>Duration : </b> 3 hour 00 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> The story of J. Robert Oppenheimer and his role in developing the first atomic bomb
+                    during
+                    World War II. </p>
+                <p><b>Best Part : </b> Cillian Murphy's performance and the tension around the Manhattan Project.</p>
+                <a href="oppenheimer.html">More Details</a>
+            </fieldset>
+        </div>
+
+        <div class="movies">
+            <fieldset>
+                <legend>
+                    <h2>8. <span>Dune: Part Two</span></h2>
+                </legend>
+                <img src="dune.jpg" alt="Image cann't load!!!">
+
+                <p><b>Genre : </b> Sci-Fi, Adventure, Drama | <b>Rating : </b>★ 9.5</p>
+                <p><b>Director : </b> Denis Villeneuve | <b>Year : </b>2024</p>
+                <p><b>Duration : </b> 2 hour 46 minutes | <b>Language : </b>English</p>
+                <p><b>Story :</b> Paul Atreides joins the Fremen on Arrakis and becomes increasingly involved in the
+                    planet's political and religious struggle.</p>
+                <p><b>Best Part : </b>Scale, cinematography, soundtrack, and battles.</p>
+                <a href="dune.html">More Details</a>
+            </fieldset>
+        </div>
+    </main>
+    <br><br>
+
+    <a href="home.html">← Back To Home</a>
+
+    <footer>@2026 MovieExplorer ~ShreyKatariya</footer>
+</body>
+
+</html>
