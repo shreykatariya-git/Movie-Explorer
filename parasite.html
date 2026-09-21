@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parasite</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f1117;
+            color: #e8e8e8;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #141722, #1d2333);
+            padding: 30px 7%;
+            border-bottom: 1px solid #303747;
+        }
+
+        header h1 {
+            color: #ffcc00;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        header ul {
+            list-style: none;
+        }
+
+        header nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        header nav li {
+            list-style: none;
+        }
+
+        header nav a {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #252c3c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        header nav a:hover {
+            background: #ffcc00;
+            color: #111111;
+            transform: translateY(-2px);
+        }
+
+        hr {
+            border: none;
+            background: #343b4c;
+            margin: 25px 0;
+        }
+
+        body>h2,
+        body>h3,
+        body>p,
+        body>ul,
+        body>img,
+        body>table {
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body>h2 {
+            color: #ffcc00;
+            font-size: 28px;
+            margin-top: 35px;
+            margin-bottom: 12px;
+            padding: 0 25px;
+        }
+
+        body>h2:first-of-type {
+            color: #ffffff;
+            font-size: 34px;
+            margin-top: 40px;
+        }
+
+        body>h3 {
+            color: #ffffff;
+            font-size: 20px;
+            margin-top: 25px;
+            padding: 0 25px;
+        }
+
+        body>p {
+            color: #bfc4cf;
+            margin-top: 12px;
+            padding: 0 25px;
+        }
+
+        body>ul {
+            color: #c3c8d2;
+            margin-top: 10px;
+            padding: 0 45px;
+        }
+
+        body>ul li {
+            margin: 8px 0;
+        }
+
+        body>ul b,
+        body>p b {
+            color: #ffffff;
+        }
+
+        body>img {
+            display: block;
+            width: calc(100% - 50px);
+            max-width: 700px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #303849;
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.3s ease;
+        }
+
+        table {
+            width: calc(100% - 50px);
+            border-collapse: collapse;
+            background: #181c27;
+            margin-top: 15px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #343b4c;
+        }
+
+        th {
+            background: #252c3c;
+            color: #ffcc00;
+            font-size: 17px;
+        }
+
+        td {
+            color: #c3c8d2;
+        }
+
+        tr:hover td {
+            background: #202635;
+        }
+
+        body>a {
+            display: inline-block;
+            margin: 30px 0 0 25px;
+            padding: 12px 20px;
+            background: #252c3c;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 7px;
+            transition: 0.3s ease;
+        }
+
+        body>a:hover {
+            background: #ffcc00;
+            color: #111111;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            color: #777f90;
+            padding: 25px;
+            margin-top: 35px;
+            border-top: 1px solid #292f3c;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            header {
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            header nav {
+                flex-direction: column;
+            }
+
+            header nav a {
+                width: 100%;
+                text-align: center;
+            }
+
+            body>h2,
+            body>h3,
+            body>p {
+                padding: 0 15px;
+            }
+
+            body>ul {
+                padding: 0 30px;
+            }
+
+            body>img,
+            table {
+                width: calc(100% - 30px);
+            }
+
+            body>img {
+                height: 250px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+            }
+
+            body>a {
+                margin-left: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <h1>🎬 Movie Explorer</h1>
+        <ul>
+            <nav>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#main">Catalouge</a></li>
+                <li><a href="details.html">Movie Details</a></li>
+                <li><a href="about.html">About & Contact</a></li>
+            </nav>
+        </ul>
+        <hr>
+    </header>
+
+    <h2>🎬<span>Parasite</span></h2>
+
+    <img src="parasite.jpg" alt="Image cann't load!!!" height="500px">
+
+    <h2>Film Overview & Specifications</h2>
+    <ul>
+        <li><b>Genre:</b> Comedy, Drama, Thriller</li>
+        <li><b>Director:</b> Bong Joon Ho</li>
+        <li><b>Writer:</b> Bong Joon Ho, Han Jin Won</li>
+        <li><b>Release Date:</b> May 30, 2019</li>
+        <li><b>Runtime Duration:</b> 132 Minutes (2h 12m)</li>
+        <li><b>Original Language:</b> Korean</li>
+        <li><b>Box Office Revenue:</b> $258 Million USD</li>
+        <li><b>Production Budget:</b> $11 Million USD</li>
+    </ul>
+
+    <h2>Plot Synopsis</h2>
+
+    <p>
+        Parasite follows the Kim family, a poor family living in a small
+        semi-basement apartment in South Korea. They struggle to make
+        ends meet by taking small jobs and searching for better
+        opportunities.
+    </p>
+
+    <p>
+        Their lives change when the son, Ki-woo, gets an opportunity to
+        work as an English tutor for the wealthy Park family. Soon,
+        other members of the Kim family gradually find ways to work
+        for the Parks by hiding their true relationships.
+    </p>
+
+    <p>
+        As the two families become increasingly connected, a shocking
+        secret hidden inside the Park family's luxurious home is
+        revealed. The situation quickly turns dangerous, exposing
+        the deep divisions between wealth and poverty.
+    </p>
+
+    <h2>Starring Cast</h2>
+
+    <ul>
+        <li><b>Song Kang-ho</b> as Kim Ki-taek</li>
+        <li><b>Lee Sun-kyun</b> as Park Dong-ik</li>
+        <li><b>Cho Yeo-jeong</b> as Park Yeon-gyo</li>
+        <li><b>Choi Woo-shik</b> as Kim Ki-woo</li>
+        <li><b>Park So-dam</b> as Kim Ki-jung</li>
+        <li><b>Jang Hye-jin</b> as Chung-sook</li>
+        <li><b>Lee Jung-eun</b> as Moon-gwang</li>
+    </ul>
+
+    <h2>Technical & Production Specs</h2>
+
+    <table>
+        <tr>
+            <th>Specification</th>
+            <th>Technical Information</th>
+        </tr>
+        <tr>
+            <td>Aspect Ratio</td>
+            <td>2.39 : 1</td>
+        </tr>
+        <tr>
+            <td>Camera Capture</td>
+            <td>ARRI Alexa 65</td>
+        </tr>
+        <tr>
+            <td>Sound Mix Format</td>
+            <td>Dolby Atmos, Dolby Digital</td>
+        </tr>
+        <tr>
+            <td>Production Companies</td>
+            <td>Barunson E&A, CJ Entertainment</td>
+        </tr>
+        <tr>
+            <td>Filming Locations</td>
+            <td>Seoul and Jeonju, South Korea</td>
+        </tr>
+    </table>
+
+    <h2>Audience Reviews</h2>
+
+    <h3>"A Brilliant and Thought-Provoking Masterpiece"</h3>
+
+    <ul>
+        <li><b>Reviewer:</b> Alex Johnson</li>
+        <li><b>Date:</b> August 12, 2021</li>
+        <li><b>Rating:</b> ★★★★★</li>
+    </ul>
+
+    <p>
+        Parasite is a brilliantly crafted film that mixes dark comedy,
+        drama, and thriller elements. Bong Joon Ho uses the story to
+        explore social class, inequality, ambition, and the differences
+        between the rich and the poor.
+    </p>
+
+    <h3>"A Powerful Story About Social Inequality"</h3>
+
+    <ul>
+        <li><b>Reviewer:</b> Sarah Miller</li>
+        <li><b>Date:</b> January 04, 2023</li>
+        <li><b>Rating:</b> ★★★★★</li>
+    </ul>
+
+    <p>
+        The movie keeps the audience guessing while delivering strong
+        performances and unexpected twists. Its combination of suspense,
+        humor, and social commentary makes it a memorable international
+        film.
+    </p>
+
+    <br>
+
+    <a href="home.html">← Back To Home</a>
+    <br>
+    <a href="catalouge.html">← Back To Catalouge</a>
+
+    <footer>@2026 MovieExplorer ~ShreyKatariya</footer>
+
+</body>
+
+</html>
