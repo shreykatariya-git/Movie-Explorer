@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dune: Part Two</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f1117;
+            color: #e8e8e8;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #141722, #1d2333);
+            padding: 30px 7%;
+            border-bottom: 1px solid #303747;
+        }
+
+        header h1 {
+            color: #ffcc00;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        header ul {
+            list-style: none;
+        }
+
+        header nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        header nav li {
+            list-style: none;
+        }
+
+        header nav a {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #252c3c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        header nav a:hover {
+            background: #ffcc00;
+            color: #111111;
+            transform: translateY(-2px);
+        }
+
+        hr {
+            border: none;
+            background: #343b4c;
+            margin: 25px 0;
+        }
+
+        body>h2,
+        body>h3,
+        body>p,
+        body>ul,
+        body>img,
+        body>table {
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body>h2 {
+            color: #ffcc00;
+            font-size: 28px;
+            margin-top: 35px;
+            margin-bottom: 12px;
+            padding: 0 25px;
+        }
+
+        body>h2:first-of-type {
+            color: #ffffff;
+            font-size: 34px;
+            margin-top: 40px;
+        }
+
+        body>h3 {
+            color: #ffffff;
+            font-size: 20px;
+            margin-top: 25px;
+            padding: 0 25px;
+        }
+
+        body>p {
+            color: #bfc4cf;
+            margin-top: 12px;
+            padding: 0 25px;
+        }
+
+        body>ul {
+            color: #c3c8d2;
+            margin-top: 10px;
+            padding: 0 45px;
+        }
+
+        body>ul li {
+            margin: 8px 0;
+        }
+
+        body>ul b,
+        body>p b {
+            color: #ffffff;
+        }
+
+        body>img {
+            display: block;
+            width: calc(100% - 50px);
+            max-width: 700px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #303849;
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.3s ease;
+        }
+
+        table {
+            width: calc(100% - 50px);
+            border-collapse: collapse;
+            background: #181c27;
+            margin-top: 15px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #343b4c;
+        }
+
+        th {
+            background: #252c3c;
+            color: #ffcc00;
+            font-size: 17px;
+        }
+
+        td {
+            color: #c3c8d2;
+        }
+
+        tr:hover td {
+            background: #202635;
+        }
+
+        body>a {
+            display: inline-block;
+            margin: 30px 0 0 25px;
+            padding: 12px 20px;
+            background: #252c3c;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 7px;
+            transition: 0.3s ease;
+        }
+
+        body>a:hover {
+            background: #ffcc00;
+            color: #111111;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            color: #777f90;
+            padding: 25px;
+            margin-top: 35px;
+            border-top: 1px solid #292f3c;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            header {
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            header nav {
+                flex-direction: column;
+            }
+
+            header nav a {
+                width: 100%;
+                text-align: center;
+            }
+
+            body>h2,
+            body>h3,
+            body>p {
+                padding: 0 15px;
+            }
+
+            body>ul {
+                padding: 0 30px;
+            }
+
+            body>img,
+            table {
+                width: calc(100% - 30px);
+            }
+
+            body>img {
+                height: 250px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+            }
+
+            body>a {
+                margin-left: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <h1>🎬 Movie Explorer</h1>
+        <ul>
+            <nav>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalouge.html">Catalouge</a></li>
+                <li><a href="details.html">Movie Details</a></li>
+                <li><a href="about.html">About & Contact</a></li>
+            </nav>
+        </ul>
+        <hr>
+    </header>
+
+    <h2>🎬<span>Dune: Part Two</span></h2>
+
+    <img src="dune.jpg" alt="Image can't load!!!" height="300px">
+
+
+    <h2>Film Overview & Specifications</h2>
+
+    <ul>
+        <li><b>Genre:</b> Science Fiction, Adventure, Drama</li>
+        <li><b>Director:</b> Denis Villeneuve</li>
+        <li><b>Writer:</b> Denis Villeneuve, Jon Spaihts, Craig Mazin</li>
+        <li><b>Release Date:</b> March 1, 2024</li>
+        <li><b>Runtime Duration:</b> 166 Minutes (2h 46m)</li>
+        <li><b>Original Language:</b> English</li>
+        <li><b>Box Office Revenue:</b> $714 Million USD</li>
+        <li><b>Production Budget:</b> $190 Million USD</li>
+    </ul>
+
+
+    <h2>Plot Synopsis</h2>
+
+    <p>
+        Dune: Part Two continues the story of Paul Atreides as he joins
+        Chani and the Fremen while seeking revenge against the conspirators
+        who destroyed his family.
+    </p>
+
+    <p>
+        As Paul becomes more closely connected with the Fremen people,
+        he struggles with the possibility of becoming the messianic figure
+        they believe he is. Together with Chani and the Fremen, Paul prepares
+        to fight against House Harkonnen and the forces of the Emperor.
+    </p>
+
+    <p>
+        As the conflict grows, Paul must choose between the love of his life,
+        the fate of the Fremen, and the responsibility of fulfilling a
+        dangerous prophecy. His journey ultimately leads to an epic battle
+        for control of Arrakis and its valuable spice.
+    </p>
+
+
+    <h2>Starring Cast</h2>
+
+    <ul>
+        <li><b>Timothée Chalamet</b> as Paul Atreides</li>
+        <li><b>Zendaya</b> as Chani</li>
+        <li><b>Rebecca Ferguson</b> as Lady Jessica</li>
+        <li><b>Josh Brolin</b> as Gurney Halleck</li>
+        <li><b>Austin Butler</b> as Feyd-Rautha Harkonnen</li>
+        <li><b>Florence Pugh</b> as Princess Irulan</li>
+        <li><b>Christopher Walken</b> as Emperor Shaddam IV</li>
+        <li><b>Javier Bardem</b> as Stilgar</li>
+        <li><b>Stellan Skarsgård</b> as Baron Vladimir Harkonnen</li>
+    </ul>
+
+
+    <h2>Technical & Production Specs</h2>
+
+    <table>
+
+        <tr>
+            <th>Specification</th>
+            <th>Technical Information</th>
+        </tr>
+
+        <tr>
+            <td>Aspect Ratio</td>
+            <td>2.39 : 1 / IMAX expanded format</td>
+        </tr>
+
+        <tr>
+            <td>Camera Capture</td>
+            <td>ARRI Alexa LF, IMAX-certified digital cameras</td>
+        </tr>
+
+        <tr>
+            <td>Sound Mix Format</td>
+            <td>Dolby Atmos, IMAX Sound</td>
+        </tr>
+
+        <tr>
+            <td>Production Companies</td>
+            <td>Warner Bros. Pictures, Legendary Pictures, Villeneuve Films</td>
+        </tr>
+
+        <tr>
+            <td>Filming Locations</td>
+            <td>Budapest, Abu Dhabi, Jordan, Namibia, Italy</td>
+        </tr>
+
+    </table>
+
+
+    <h2>Audience Reviews</h2>
+
+    <h3>"An Epic Science Fiction Masterpiece"</h3>
+
+    <ul>
+        <li><b>Reviewer:</b> Alex Johnson</li>
+        <li><b>Date:</b> March 10, 2024</li>
+        <li><b>Rating:</b> ★★★★★</li>
+    </ul>
+
+    <p>
+        Dune: Part Two is an extraordinary science fiction adventure with
+        breathtaking visuals, powerful performances, and an immersive story.
+        Denis Villeneuve successfully expands the world of Arrakis and
+        delivers an epic cinematic experience.
+    </p>
+
+
+    <h3>"Timothée Chalamet and Zendaya Shine"</h3>
+
+    <ul>
+        <li><b>Reviewer:</b> Sarah Miller</li>
+        <li><b>Date:</b> April 02, 2024</li>
+        <li><b>Rating:</b> ★★★★★</li>
+    </ul>
+
+    <p>
+        Timothée Chalamet gives a strong performance as Paul Atreides,
+        while Zendaya brings depth and emotion to Chani. The movie combines
+        impressive action sequences, stunning cinematography, and emotional
+        storytelling to create one of the most memorable science fiction
+        films of recent years.
+    </p>
+
+
+    <br>
+
+    <a href="home.html">← Back To Home</a>
+    <br>
+    <a href="catalouge.html">← Back To Catalouge</a>
+
+    <footer>@2026 MovieExplorer ~ShreyKatariya</footer>
+
+</body>
+
+</html>
