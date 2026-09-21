@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Details</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #0f1117;
+                color: #e8e8e8;
+                line-height: 1.6;
+                padding-bottom: 40px;
+            }
+
+            /* Header */
+
+            header {
+                background: linear-gradient(135deg, #141722, #1d2333);
+                padding: 30px 7%;
+                border-bottom: 1px solid #303747;
+            }
+
+            header h1 {
+                color: #ffcc00;
+                font-size: 38px;
+                margin-bottom: 20px;
+            }
+
+            header ul {
+                list-style: none;
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            header a {
+                display: inline-block;
+                padding: 10px 18px;
+                background-color: #252c3c;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                transition: 0.3s;
+            }
+
+            header a:hover {
+                background-color: #ffcc00;
+                color: #111111;
+                transform: translateY(-2px);
+            }
+
+            hr {
+                border: none;
+                height: 1px;
+                background-color: #343b4c;
+                margin: 25px 0;
+            }
+
+            header h2 {
+                color: white;
+                margin-bottom: 8px;
+            }
+
+            header p {
+                color: #aeb5c4;
+            }
+
+            /* Movie section */
+
+            #movie {
+                max-width: 1400px;
+                margin: 40px auto;
+                padding: 0 25px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            /* Movie cards */
+
+            .movies {
+                background-color: #181c27;
+                border: 1px solid #303849;
+                border-radius: 14px;
+                padding: 25px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+                transition: 0.3s;
+            }
+
+            .movies:hover {
+                border-color: #ffcc00;
+                transform: translateY(-6px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            }
+
+            .movies img {
+                width: 100%;
+                height: 350px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 15px;
+            }
+
+            .movies h2 {
+                color: #ffcc00;
+                font-size: 23px;
+                margin-bottom: 12px;
+            }
+
+            .movies p {
+                color: #bfc4cf;
+                margin: 8px 0;
+            }
+
+            .movies b {
+                color: white;
+            }
+
+            .movies a {
+                display: inline-block;
+                margin-top: 12px;
+                padding: 10px 18px;
+                background-color: #ffcc00;
+                color: #111111;
+                text-decoration: none;
+                font-weight: bold;
+                border-radius: 7px;
+                transition: 0.3s;
+            }
+
+            .movies a:hover {
+                background-color: white;
+                transform: translateX(4px);
+            }
+
+            /* Back button */
+
+            .back-button {
+                display: block;
+                width: fit-content;
+                margin: 35px auto;
+                padding: 12px 25px;
+                background-color: #252c3c;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                transition: 0.3s;
+            }
+
+            .back-button:hover {
+                background-color: #ffcc00;
+                color: #111111;
+            }
+
+            /* Footer */
+
+            footer {
+                text-align: center;
+                color: #777f90;
+                padding: 25px;
+                margin-top: 30px;
+                border-top: 1px solid #292f3c;
+            }
+
+            /* Mobile view */
+
+            @media (max-width: 700px) {
+                header {
+                    padding: 20px 15px;
+                }
+
+                header h1 {
+                    font-size: 28px;
+                }
+
+                header ul {
+                    flex-direction: column;
+                }
+
+                header a {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                #movie {
+                    grid-template-columns: 1fr;
+                    padding: 0 15px;
+                }
+
+                .movies {
+                    padding: 18px;
+                }
+
+                .movies img {
+                    height: 300px;
+                }
+
+                @media (max-width: 900px) {
+
+                    #main {
+                        grid-template-columns: 1fr;
+                    }
+
+                    header {
+                        padding: 25px 5%;
+                    }
+
+                    header h1 {
+                        font-size: 32px;
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🎬 Movie Explorer</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="catalouge.html">Catalogue</a></li>
+                    <li><a href="#movie">Movie Details</a></li>
+                    <li><a href="about.html">About & Contact</a></li>
+                </ul>
+            </nav>
+
+            <hr>
+
+            <h2>Movie Details</h2>
+            <p>Explore details about our top-rated movies.</p>
+        </header>
+
+        <main id="movie">
+
+            <div class="movies">
+                <img src="knight.jpg" alt="The Dark Knight poster">
+                <h2>The Dark Knight</h2>
+                <p><b>Genre:</b> Action, Crime, Drama</p>
+                <p><b>Director:</b> Christopher Nolan</p>
+                <p><b>Year:</b> 2008</p>
+                <p><b>Rating:</b> ★ 10/10</p>
+                <p><b>Story:</b> Batman faces the Joker, a criminal mastermind who pushes Gotham toward chaos.</p>
+                <a href="thedarkknight.html">View Full Details</a>
+            </div>
+
+            <div class="movies">
+                <img src="inception.jpg" alt="Inception poster">
+                <h2>Inception</h2>
+                <p><b>Genre:</b> Sci-Fi, Action, Thriller</p>
+                <p><b>Director:</b> Christopher Nolan</p>
+                <p><b>Year:</b> 2010</p>
+                <p><b>Rating:</b> ★ 10/10</p>
+                <p><b>Story:</b> A skilled thief enters dreams to steal or plant information.</p>
+                <a href="inception.html">View Full Details</a>
+            </div>
+
+            <div class="movies">
+                <img src="interstellar.jpg" alt="Interstellar poster">
+                <h2>Interstellar</h2>
+                <p><b>Genre:</b> Sci-Fi, Adventure, Drama</p>
+                <p><b>Director:</b> Christopher Nolan</p>
+                <p><b>Year:</b> 2014</p>
+                <p><b>Rating:</b> ★ 10/10</p>
+                <p><b>Story:</b> Astronauts travel through a wormhole to find a new home for humanity.</p>
+                <a href="interstellar.html">View Full Details</a>
+            </div>
+
+            <div class="movies">
+                <img src="avengers.jpg" alt="Avengers Endgame poster">
+                <h2>Avengers: Endgame</h2>
+                <p><b>Genre:</b> Superhero, Action, Sci-Fi</p>
+                <p><b>Director:</b> Anthony Russo & Joe Russo</p>
+                <p><b>Year:</b> 2019</p>
+                <p><b>Rating:</b> ★ 9.5/10</p>
+                <p><b>Story:</b> The Avengers attempt to reverse the consequences of Thanos' actions.</p>
+                <a href="avengersendgame.html">View Full Details</a>
+            </div>
+
+            <div class="movies">
+                <img src="parasite.jpg" alt="Parasite poster">
+                <h2>Parasite</h2>
+                <p><b>Genre:</b> Thriller, Drama</p>
+                <p><b>Director:</b> Bong Joon Ho</p>
+                <p><b>Year:</b> 2019</p>
+                <p><b>Rating:</b> ★ 9.5/10</p>
+                <p><b>Story:</b> A struggling family becomes involved with a wealthy family.</p>
+                <a href="parasite.html">View Full Details</a>
+            </div>
+
+            <div class="movies">
+                <img src="spiderman.jpg" alt="Spider-Man Across the Spider-Verse poster">
+                <h2>Spider-Man: Across the Spider-Verse</h2>
+                <p><b>Genre:</b> Animation, Action, Sci-Fi</p>
+                <p><b>Director:</b> Joaquim Dos Santos and others</p>
+                <p><b>Year:</b> 2023</p>
+                <p><b>Rating:</b> ★ 9.5/10</p>
+                <p><b>Story:</b> Miles Morales explores a universe filled with different Spider-People.</p>
+                <a href="spiderman.html">View Full Details</a>
+            </div>
+
+            <div class="movies">
+                <img src="oppenheimer.jpg" alt="Oppenheimer poster">
+                <h2>Oppenheimer</h2>
+                <p><b>Genre:</b> Biography, Drama, History</p>
+                <p><b>Director:</b> Christopher Nolan</p>
+                <p><b>Year:</b> 2023</p>
+                <p><b>Rating:</b> ★ 9.5/10</p>
+                <p><b>Story:</b> The story of J. Robert Oppenheimer and the atomic bomb project.</p>
+                <a href="oppenheimer.html">View Full Details</a>
+            </div>
+
+            <div class="movies">
+                <img src="dune.jpg" alt="Dune Part Two poster">
+                <h2>Dune: Part Two</h2>
+                <p><b>Genre:</b> Sci-Fi, Adventure, Drama</p>
+                <p><b>Director:</b> Denis Villeneuve</p>
+                <p><b>Year:</b> 2024</p>
+                <p><b>Rating:</b> ★ 9.5/10</p>
+                <p><b>Story:</b> Paul Atreides joins the Fremen in their fight on Arrakis.</p>
+                <a href="dune.html">View Full Details</a>
+            </div>
+
+        </main>
+
+        <a class="back-button" href="home.html">← Back To Home</a>
+
+        <footer>
+            © 2026 MovieExplorer ~ ShreyKatariya
+        </footer>
+
+    </body>
+
+    </html>
+</body>
+
+</html>
